@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppsTable extends Migration
+class CreateEntriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,14 @@ class CreateAppsTable extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('apps', function (Blueprint $table) {
+        Schema::create('entries', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->longText('content');
+            $table->text('username');
             $table->text('password');
+            $table->string('url');
+            $table->longText('comment');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
@@ -36,6 +38,6 @@ class CreateAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apps');
+        Schema::dropIfExists('entries');
     }
 }

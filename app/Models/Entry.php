@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Entry extends Model
 {
     use HasFactory;
 
@@ -17,12 +17,23 @@ class Category extends Model
     protected $guarded = [];
 
     /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
         'id' => 'integer',
+        'category_id' => 'integer',
+        'user_id' => 'string',
     ];
 
     public function getRouteKeyName()
@@ -30,8 +41,14 @@ class Category extends Model
         return 'slug';
     }
 
-    public function entries()
+    public function category()
     {
-        return $this->hasMany(\App\Models\Entry::class);
+        return $this->belongsTo(\App\Models\Category::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
 }

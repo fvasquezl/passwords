@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Tag extends Model
 {
     use HasFactory;
 
@@ -24,14 +24,4 @@ class Category extends Model
     protected $casts = [
         'id' => 'integer',
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    public function entries()
-    {
-        return $this->hasMany(\App\Models\Entry::class);
-    }
 }

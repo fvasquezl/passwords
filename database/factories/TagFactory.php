@@ -4,18 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\App;
-use App\Models\Category;
-use App\Models\User;
+use App\Models\Tag;
 
-class AppFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = App::class;
+    protected $model = Tag::class;
 
     /**
      * Define the model's default state.
@@ -25,12 +23,8 @@ class AppFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(4),
+            'name' => $this->faker->name,
             'slug' => $this->faker->slug,
-            'content' => $this->faker->paragraphs(3, true),
-            'password' => $this->faker->password,
-            'category_id' => Category::factory(),
-            'user_id' => User::factory(),
         ];
     }
 }

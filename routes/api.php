@@ -1,5 +1,6 @@
 <?php
 
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,20 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+JsonApi::register('v1')->routes(function ($api) {
+    $api->resource('entries')->relationships(function ($api) {
+        $api->hasOne('authors');
+        $api->hasOne('categories');
+    });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    $api->resource('authors')->only('index','read')->relationships(function ($api) {
+        $api->hasMany('entries')->except('replace', 'add', 'remove');
+    });
+
+    $api->resource('categories')->only('index','read')->relationships(function ($api) {
+        $api->hasMany('entries')->except('replace', 'add', 'remove');
+    });
+
 });
+
+
