@@ -36,8 +36,8 @@ class Schema extends SchemaProvider
             'password' =>  $entry->password,
             'url' =>  $entry->url,
             'comment' =>  $entry->comment,
-            'createdAt' => $entry->created_at,
-            'updatedAt' => $entry->updated_at,
+            'createdAt' => $entry->created_at->toAtomString(),
+            'updatedAt' => $entry->updated_at->toAtomString(),
         ];
     }
 }

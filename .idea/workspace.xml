@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Traits/HasUuid.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AppFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_13_002838_create_apps_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Apps/CreateAppsTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rules/Slug.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rules/Slug.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,25 +179,25 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.CreateEntryTest.auth_user_can_create_an_entry">
-    <configuration name="CreateEntryTest.auth_user_can_create_an_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\CreateEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" method="auth_user_can_create_an_entry" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.ListEntryTest.can_fetch_single_entry">
+    <configuration name="CreateEntryTest.comment_is_required" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\CreateEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" method="comment_is_required" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="CreateEntryTest.can_fetch_single_app" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\CreateEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" method="can_fetch_single_app" scope="Method" />
+    <configuration name="CreateEntryTest.guest_user_cannot_create_an_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\CreateEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" method="guest_user_cannot_create_an_entry" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListAuthorsTest.can_fetch_all_authors" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Authors\ListAuthorsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Authors/ListAuthorsTest.php" method="can_fetch_all_authors" scope="Method" />
+    <configuration name="CreateEntryTest.url_must_have_url_format" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\CreateEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" method="url_must_have_url_format" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListAuthorsTest.can_fetch_single_author" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Authors\ListAuthorsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Authors/ListAuthorsTest.php" method="can_fetch_single_author" scope="Method" />
+    <configuration name="ListEntryTest.can_fetch_all_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\ListEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/ListEntryTest.php" method="can_fetch_all_entries" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListCategoriesTest.can_fetch_single_category" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Categories\ListCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/ListCategoriesTest.php" method="can_fetch_single_category" scope="Method" />
+    <configuration name="ListEntryTest.can_fetch_single_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\ListEntryTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/ListEntryTest.php" method="can_fetch_single_entry" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -216,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.CreateEntryTest.auth_user_can_create_an_entry" />
-        <item itemvalue="PHPUnit.ListAuthorsTest.can_fetch_single_author" />
-        <item itemvalue="PHPUnit.ListCategoriesTest.can_fetch_single_category" />
-        <item itemvalue="PHPUnit.CreateEntryTest.can_fetch_single_app" />
-        <item itemvalue="PHPUnit.ListAuthorsTest.can_fetch_all_authors" />
+        <item itemvalue="PHPUnit.ListEntryTest.can_fetch_single_entry" />
+        <item itemvalue="PHPUnit.ListEntryTest.can_fetch_all_entries" />
+        <item itemvalue="PHPUnit.CreateEntryTest.guest_user_cannot_create_an_entry" />
+        <item itemvalue="PHPUnit.CreateEntryTest.url_must_have_url_format" />
+        <item itemvalue="PHPUnit.CreateEntryTest.comment_is_required" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +224,8 @@
       <updated>1613170510859</updated>
       <workItem from="1613170513605" duration="8826000" />
       <workItem from="1613414378158" duration="216000" />
-      <workItem from="1613414597882" duration="22568000" />
+      <workItem from="1613414597882" duration="26295000" />
+      <workItem from="1613503557419" duration="15176000" />
     </task>
     <servers />
   </component>

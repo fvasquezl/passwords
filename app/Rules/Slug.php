@@ -6,6 +6,7 @@ use Illuminate\Contracts\Validation\Rule;
 
 class Slug implements Rule
 {
+    protected $message;
     /**
      * Create a new rule instance.
      *
@@ -50,6 +51,33 @@ class Slug implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return $this->message;
+    }
+
+    /**
+     * @param $value
+     * @return false|int
+     */
+    public function hasUnderscores($value)
+    {
+        return preg_match('/_/', $value);
+    }
+
+    /**
+     * @param $value
+     * @return false|int
+     */
+    public function startsWithDashes($value)
+    {
+        return preg_match('/^-/', $value);
+    }
+
+    /**
+     * @param $value
+     * @return false|int
+     */
+    public function endWithDashes($value)
+    {
+        return preg_match('/-$/', $value);
     }
 }

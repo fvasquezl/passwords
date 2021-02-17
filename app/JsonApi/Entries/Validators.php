@@ -2,6 +2,8 @@
 
 namespace App\JsonApi\Entries;
 
+use App\Rules\Slug;
+use CloudCreativity\LaravelJsonApi\Rules\HasOne;
 use CloudCreativity\LaravelJsonApi\Validation\AbstractValidators;
 use Illuminate\Validation\Rule;
 
@@ -45,6 +47,31 @@ class Validators extends AbstractValidators
     {
 
         return [
+            'authors' => [
+                'required',
+                new HasOne('authors')
+            ],
+            'categories' => [
+                'required',
+                new HasOne('categories')
+            ],
+            'name' => ['required'],
+
+            'slug' => [
+                'required',
+                'alpha_dash',
+                Rule::unique('entries')->ignore($record),
+                new Slug()
+            ],
+            'username' => ['required'],
+            'password' => ['required'],
+            'url' => [
+                'required',
+                'url'
+            ],
+            'comment' => [
+                'required'
+            ],
 
         ];
     }
