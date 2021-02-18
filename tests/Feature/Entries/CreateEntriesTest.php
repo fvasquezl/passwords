@@ -10,7 +10,7 @@ use Laravel\Sanctum\Sanctum;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
-class CreateEntryTest extends TestCase
+class CreateEntriesTest extends TestCase
 {
     use RefreshDatabase;
 

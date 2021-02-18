@@ -39,10 +39,10 @@ class Authorizer extends AbstractAuthorizer
      */
     public function create($type, $request)
     {
-        $this->authenticate(); // Authenticate on EntryPolicy
+        $this->authenticate();
 
         if ($request->has('data.relationships.authors')) {
-            $this->authorize('create', [$type, $request]);
+            $this->authorize('create', [$type, $request]);// create on EntryPolicy
         }
 
     }
@@ -66,7 +66,7 @@ class Authorizer extends AbstractAuthorizer
     /**
      * Authorize a resource update request.
      *
-     * @param object $record
+     * @param object $entry
      *      the domain record.
      * @param Request $request
      *      the inbound request.
@@ -74,9 +74,9 @@ class Authorizer extends AbstractAuthorizer
      * @throws AuthenticationException|AuthorizationException
      *      if the request is not authorized.
      */
-    public function update($record, $request)
+    public function update($entry, $request)
     {
-        // TODO: Implement update() method.
+        $this->can('update', $entry); //update on EntryPolicy
     }
 
     /**

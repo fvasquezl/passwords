@@ -6,7 +6,7 @@ use App\Models\Entry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ListEntryTest extends TestCase
+class ListEntriesTest extends TestCase
 {
     use RefreshDatabase;
 

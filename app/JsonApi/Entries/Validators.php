@@ -48,11 +48,12 @@ class Validators extends AbstractValidators
 
         return [
             'authors' => [
-                'required',
+                Rule::requiredIf(!$record),
                 new HasOne('authors')
+
             ],
             'categories' => [
-                'required',
+                Rule::requiredIf(!$record),
                 new HasOne('categories')
             ],
             'name' => ['required'],
