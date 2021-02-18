@@ -6,6 +6,8 @@ use CloudCreativity\LaravelJsonApi\Auth\AbstractAuthorizer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class Authorizer extends AbstractAuthorizer
 {
@@ -93,6 +95,13 @@ class Authorizer extends AbstractAuthorizer
     public function delete($record, $request)
     {
         // TODO: Implement delete() method.
+    }
+
+
+    public function modifyRelationship($record, $field, $request)
+    {
+        $ability = Str::camel('modify-' . $field);
+        $this->can($ability, $record, $request);
     }
 
 }

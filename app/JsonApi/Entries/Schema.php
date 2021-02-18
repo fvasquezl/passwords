@@ -40,4 +40,5 @@ class Schema extends SchemaProvider
             'updatedAt' => $entry->updated_at->toAtomString(),
         ];
     }
+
 }

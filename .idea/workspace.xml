@@ -7,10 +7,9 @@
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Authorizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Authorizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/CreateEntryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/CreateEntriesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/ListEntryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/ListEntriesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,25 +179,25 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.UpdateEntriesTest.auth_users_cannot_update_others_entries">
-    <configuration name="UpdateEntriesTest.auth_users_can_update_an_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="auth_users_can_update_an_entry" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.UpdateEntriesTest.can_replace_the_authors">
     <configuration name="UpdateEntriesTest.auth_users_can_update_their_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="auth_users_can_update_their_entries" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateEntriesTest.auth_users_cannot_update_an_entry_on_behalf_another_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="auth_users_cannot_update_an_entry_on_behalf_another_user" scope="Method" />
+    <configuration name="UpdateEntriesTest.can_replace_the_author" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="can_replace_the_author" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateEntriesTest.auth_users_cannot_update_others_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="auth_users_cannot_update_others_entries" scope="Method" />
+    <configuration name="UpdateEntriesTest.can_replace_the_authors" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="can_replace_the_authors" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateEntriesTest.guest_user_cannot_update_an_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="guest_user_cannot_update_an_entry" scope="Method" />
+    <configuration name="UpdateEntriesTest.can_replace_the_category" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="can_replace_the_category" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateEntriesTest.can_update_only_slug" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="can_update_only_slug" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -207,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.UpdateEntriesTest.auth_users_cannot_update_others_entries" />
-        <item itemvalue="PHPUnit.UpdateEntriesTest.auth_users_cannot_update_an_entry_on_behalf_another_user" />
+        <item itemvalue="PHPUnit.UpdateEntriesTest.can_replace_the_authors" />
+        <item itemvalue="PHPUnit.UpdateEntriesTest.can_replace_the_category" />
         <item itemvalue="PHPUnit.UpdateEntriesTest.auth_users_can_update_their_entries" />
-        <item itemvalue="PHPUnit.UpdateEntriesTest.auth_users_can_update_an_entry" />
-        <item itemvalue="PHPUnit.UpdateEntriesTest.guest_user_cannot_update_an_entry" />
+        <item itemvalue="PHPUnit.UpdateEntriesTest.can_replace_the_author" />
+        <item itemvalue="PHPUnit.UpdateEntriesTest.can_update_only_slug" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +226,7 @@
       <workItem from="1613414378158" duration="216000" />
       <workItem from="1613414597882" duration="26295000" />
       <workItem from="1613503557419" duration="16157000" />
-      <workItem from="1613584272394" duration="7780000" />
+      <workItem from="1613584272394" duration="16953000" />
     </task>
     <servers />
   </component>

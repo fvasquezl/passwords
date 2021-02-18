@@ -22,4 +22,16 @@ class EntryPolicy
             $entry->user->is($user);
 
     }
+
+    public function modifyCategories(User $user, $entry)
+    {
+        return $user->tokenCan('entries:modify-categories') &&
+            $entry->user->is($user);
+    }
+
+    public function modifyAuthors(User $user, $entry)
+    {
+        return $user->tokenCan('entries:modify-authors') &&
+            $entry->user->is($user);
+    }
 }
