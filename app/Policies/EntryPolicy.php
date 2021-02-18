@@ -20,8 +20,15 @@ class EntryPolicy
     {
         return $user->tokenCan('entries:update') &&
             $entry->user->is($user);
-
     }
+
+
+    public function delete(User $user, $entry)
+    {
+        return $user->tokenCan('entries:delete') &&
+            $entry->user->is($user);
+    }
+
 
     public function modifyCategories(User $user, $entry)
     {

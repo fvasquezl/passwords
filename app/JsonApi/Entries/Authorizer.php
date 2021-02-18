@@ -78,13 +78,13 @@ class Authorizer extends AbstractAuthorizer
      */
     public function update($entry, $request)
     {
-        $this->can('update', $entry); //update on EntryPolicy
+        $this->can('update', $entry); //check if can update on EntryPolicy
     }
 
     /**
      * Authorize a resource read request.
      *
-     * @param object $record
+     * @param object $entry
      *      the domain record.
      * @param Request $request
      *      the inbound request.
@@ -92,9 +92,9 @@ class Authorizer extends AbstractAuthorizer
      * @throws AuthenticationException|AuthorizationException
      *      if the request is not authorized.
      */
-    public function delete($record, $request)
+    public function delete($entry, $request)
     {
-        // TODO: Implement delete() method.
+        $this->can('delete', $entry); //check if can delete on EntryPolicy
     }
 
 
