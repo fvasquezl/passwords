@@ -50,7 +50,6 @@ class Validators extends AbstractValidators
             'authors' => [
                 Rule::requiredIf(!$record),
                 new HasOne('authors')
-
             ],
             'categories' => [
                 Rule::requiredIf(!$record),

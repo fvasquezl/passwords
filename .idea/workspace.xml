@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Authorizer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Authorizer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Adapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Adapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/PaginateEntriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/PaginateEntriesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/ReadEntriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/ReadEntriesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,11 +179,7 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.DeleteEntriesTest.auth_users_cannot_delete_other_entries">
-    <configuration name="DeleteEntriesTest.auth_users_can_delete_their_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\DeleteEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/DeleteEntriesTest.php" method="auth_users_can_delete_their_entries" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.PaginateEntriesTest.can_fetch_paginate_entries">
     <configuration name="DeleteEntriesTest.auth_users_cannot_delete_other_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Entries\DeleteEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/DeleteEntriesTest.php" method="auth_users_cannot_delete_other_entries" scope="Method" />
       <method v="2" />
@@ -190,12 +188,16 @@
       <TestRunner class="Tests\Feature\Entries\DeleteEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/DeleteEntriesTest.php" method="auth_users_cannot_delete_their_entries_without_permissions" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="DeleteEntriesTest.guest_users_cannot_delete_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\DeleteEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/DeleteEntriesTest.php" method="guest_users_cannot_delete_entries" scope="Method" />
+    <configuration name="PaginateEntriesTest.can_fetch_paginate_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\PaginateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/PaginateEntriesTest.php" method="can_fetch_paginate_entries" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="UpdateEntriesTest.can_replace_the_authors" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\UpdateEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/UpdateEntriesTest.php" method="can_replace_the_authors" scope="Method" />
+    <configuration name="ReadEntriesTest.can_fetch_all_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\ReadEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/ReadEntriesTest.php" method="can_fetch_all_entries" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ReadEntriesTest.can_fetch_single_entry" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\ReadEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/ReadEntriesTest.php" method="can_fetch_single_entry" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -204,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.PaginateEntriesTest.can_fetch_paginate_entries" />
+        <item itemvalue="PHPUnit.ReadEntriesTest.can_fetch_all_entries" />
+        <item itemvalue="PHPUnit.ReadEntriesTest.can_fetch_single_entry" />
         <item itemvalue="PHPUnit.DeleteEntriesTest.auth_users_cannot_delete_other_entries" />
         <item itemvalue="PHPUnit.DeleteEntriesTest.auth_users_cannot_delete_their_entries_without_permissions" />
-        <item itemvalue="PHPUnit.DeleteEntriesTest.auth_users_can_delete_their_entries" />
-        <item itemvalue="PHPUnit.DeleteEntriesTest.guest_users_cannot_delete_entries" />
-        <item itemvalue="PHPUnit.UpdateEntriesTest.can_replace_the_authors" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +226,7 @@
       <workItem from="1613414378158" duration="216000" />
       <workItem from="1613414597882" duration="26295000" />
       <workItem from="1613503557419" duration="16157000" />
-      <workItem from="1613584272394" duration="20305000" />
+      <workItem from="1613584272394" duration="26895000" />
     </task>
     <servers />
   </component>

@@ -45,6 +45,7 @@ class ReadEntriesTest extends TestCase
     {
         $entry = Entry::factory()->times(3)->create();
 
+
         $response = $this->jsonApi()->get(route('api.v1.entries.index'));
 
         $response->assertJson([
