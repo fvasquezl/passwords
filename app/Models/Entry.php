@@ -62,4 +62,14 @@ class Entry extends Model
         $query->where('comment', 'LIKE', "%{$value}%");
     }
 
+    public function scopeYear(Builder $query, $value)
+    {
+        $query->whereYear('created_at', $value);
+    }
+
+    public function scopeMonth(Builder $query, $value)
+    {
+        $query->whereMonth('created_at', $value);
+    }
+
 }
