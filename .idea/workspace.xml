@@ -7,7 +7,7 @@
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/PaginateEntriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/PaginateEntriesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Entry.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,13 +177,17 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.SortEntriesTest">
-    <configuration name="SortEntriesTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\SortEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/SortEntriesTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.FilterEntriesTest.can_filter_entries_by_comment">
+    <configuration name="FilterEntriesTest.can_filter_entries_by_comment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\FilterEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" method="can_filter_entries_by_comment" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="SortEntriesTest.it_can_sort_entries_by_name_and_comment_desc" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\SortEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/SortEntriesTest.php" method="it_can_sort_entries_by_name_and_comment_desc" scope="Method" />
+    <configuration name="FilterEntriesTest.can_filter_entries_by_name" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\FilterEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" method="can_filter_entries_by_name" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SortEntriesTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\SortEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/SortEntriesTest.php" scope="Class" />
       <method v="2" />
     </configuration>
     <configuration name="SortEntriesTest.it_can_sort_entries_by_name_asc" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -194,21 +198,17 @@
       <TestRunner class="Tests\Feature\Entries\SortEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/SortEntriesTest.php" method="it_can_sort_entries_by_name_desc" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="SortEntriesTest.it_cannot_sort_entries_by_unknown_fields" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\SortEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/SortEntriesTest.php" method="it_cannot_sort_entries_by_unknown_fields" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FilterEntriesTest.can_filter_entries_by_comment" />
+        <item itemvalue="PHPUnit.FilterEntriesTest.can_filter_entries_by_name" />
         <item itemvalue="PHPUnit.SortEntriesTest" />
         <item itemvalue="PHPUnit.SortEntriesTest.it_can_sort_entries_by_name_desc" />
         <item itemvalue="PHPUnit.SortEntriesTest.it_can_sort_entries_by_name_asc" />
-        <item itemvalue="PHPUnit.SortEntriesTest.it_can_sort_entries_by_name_and_comment_desc" />
-        <item itemvalue="PHPUnit.SortEntriesTest.it_cannot_sort_entries_by_unknown_fields" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +226,7 @@
       <workItem from="1613503557419" duration="16157000" />
       <workItem from="1613584272394" duration="28930000" />
       <workItem from="1613769791040" duration="599000" />
-      <workItem from="1613772861135" duration="4271000" />
+      <workItem from="1613772861135" duration="7668000" />
     </task>
     <servers />
   </component>

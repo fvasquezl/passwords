@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -49,6 +50,16 @@ class Entry extends Model
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function scopeName(Builder $query, $value)
+    {
+        $query->where('name', 'LIKE', "%{$value}%");
+    }
+
+    public function scopeComment(Builder $query, $value)
+    {
+        $query->where('comment', 'LIKE', "%{$value}%");
     }
 
 }
