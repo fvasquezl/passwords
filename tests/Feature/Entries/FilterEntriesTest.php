@@ -2,8 +2,10 @@
 
 namespace Tests\Feature\Entries;
 
+use App\Models\Category;
 use App\Models\Entry;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
 class FilterEntriesTest extends TestCase
@@ -87,5 +89,83 @@ class FilterEntriesTest extends TestCase
             ->assertJsonCount(1,'data')
             ->assertSee('Other entry march')
             ->assertDontSee('My first entry january');
+    }
+
+
+    /** @test */
+    public function cannot_filter_entries_by_unknown_filter()
+    {
+        Entry::factory()->create();
+
+        $url = route('api.v1.entries.index',['filter[unknown]'=> 3]);
+
+        $this->jsonApi()->get($url)
+            ->assertStatus(Response::HTTP_BAD_REQUEST); //400
+    }
+
+
+    /** @test */
+    public function can_search_entries_by_name_and_comment()
+    {
+        Entry::factory()->create([
+            'name' => 'Faustino must learn Laravel',
+            'comment' => "Learning Laravel"
+        ]);
+        Entry::factory()->create([
+            'name' => 'My second entry',
+            'comment' => "already Faustino known Zend"
+        ]);
+
+        Entry::factory()->create([
+            'name' => 'My third entry',
+            'comment' => "Other Comment"
+        ]);
+
+        $url = route('api.v1.entries.index',['filter[search]'=> 'Faustino']);
+
+        $this->jsonApi()->get($url)
+            ->assertJsonCount(2,'data')
+            ->assertSee('Faustino must learn Laravel')
+            ->assertSee('My second entry')
+            ->assertDontSee('My third entry');
+    }
+
+    /** @test */
+    public function can_search_entries_by_name_and_comment_with_multiple_terms()
+    {
+        Entry::factory()->create([
+            'name' => 'Faustino must learn Laravel',
+            'comment' => "Learning.."
+        ]);
+        Entry::factory()->create([
+            'name' => 'My second entry',
+            'comment' => "Already Faustino known Zend"
+        ]);
+
+        Entry::factory()->create([
+            'name' => 'My third entry',
+            'comment' => "Learning other things"
+        ]);
+
+        $url = route('api.v1.entries.index',['filter[search]'=> 'Learning Laravel']);
+
+        $this->jsonApi()->get($url)
+            ->assertJsonCount(2,'data')
+            ->assertSee('Faustino must learn Laravel')
+            ->assertSee('My third entry')
+            ->assertDontSee('My second entry');
+    }
+
+    /** @test */
+    public function can_search_entries_by_categories()
+    {
+        Entry::factory()->times(3)->create();
+        $category = Category::factory()->hasEntries(2)->create();
+
+        $url = route('api.v1.entries.index',['filter[categories]'=> $category->getRouteKey()]);
+
+        $this->jsonApi()->get($url)
+            ->assertJsonCount(2,'data')
+         ;
     }
 }

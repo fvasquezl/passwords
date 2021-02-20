@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Entry extends Model
 {
@@ -70,6 +71,21 @@ class Entry extends Model
     public function scopeMonth(Builder $query, $value)
     {
         $query->whereMonth('created_at', $value);
+    }
+
+    public function scopeSearch(Builder $query, $values)
+    {
+        foreach (Str::of($values)->explode(' ') as $value)
+        {
+            $query->orWhere('name','LIKE', "%{$value}%")
+                ->orWhere('comment','LIKE', "%{$value}%");
+        };
+    }
+
+    public function scopeCategories(Builder $query, $value)
+    {
+  dd($query);
+        $query->whereIn($value, );
     }
 
 }
