@@ -60,6 +60,14 @@ class Schema extends SchemaProvider
                 self::DATA => function () use ($entry) {
                     return $entry->user;
                 }
+            ],
+            'categories' => [
+                self::SHOW_RELATED => true,
+                self::SHOW_SELF => true,
+                self::SHOW_DATA => isset($includeRelationships['categories']),
+                self::DATA => function () use ($entry) {
+                    return $entry->category;
+                }
             ]
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace App\JsonApi\Authors;
 
+use App\Models\Entry;
 use App\Models\User;
 use CloudCreativity\LaravelJsonApi\Eloquent\AbstractAdapter;
 use CloudCreativity\LaravelJsonApi\Pagination\StandardStrategy;
@@ -44,5 +45,11 @@ class Adapter extends AbstractAdapter
     {
         $this->filterWithScopes($query, $filters);
     }
+
+    public function entries()
+    {
+        return $this->hasMany();
+    }
+
 
 }
