@@ -41,4 +41,28 @@ class Schema extends SchemaProvider
         ];
     }
 
+    /**
+     * Get resource links.
+     *
+     * @param object $entry
+     * @param bool   $isPrimary
+     * @param array  $includeRelationships A list of relationships that will be included as full entrys.
+     *
+     * @return array
+     */
+    public function getRelationships($entry, $isPrimary, array $includeRelationships)
+    {
+        return [
+            'authors' => [
+                self::SHOW_RELATED => true,
+                self::SHOW_SELF => true,
+                self::SHOW_DATA => isset($includeRelationships['authors']),
+                self::DATA => function () use ($entry) {
+                    return $entry->user;
+                }
+            ]
+        ];
+    }
+
+
 }
