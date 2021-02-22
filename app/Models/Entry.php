@@ -82,10 +82,11 @@ class Entry extends Model
         };
     }
 
-    public function scopeCategories(Builder $query, $value)
+    public function scopeCategories(Builder $query, $values)
     {
-  dd($query);
-        $query->whereIn($value, );
+        $query->whereHas('category',function ($q) use ($values){
+            $q->whereIn('slug',explode(',',$values));   // we are already within categories
+        });
     }
 
 }

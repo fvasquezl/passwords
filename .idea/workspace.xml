@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Validators.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Entry.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Entry.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CategoryFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,13 +176,13 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.FilterEntriesTest.can_search_entries_by_categories">
-    <configuration name="FilterEntriesTest.can_filter_entries_by_month" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\FilterEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" method="can_filter_entries_by_month" scope="Method" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="PHPUnit.FilterEntriesTest.can_search_entries_by_multiple_categories">
     <configuration name="FilterEntriesTest.can_search_entries_by_categories" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Entries\FilterEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" method="can_search_entries_by_categories" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FilterEntriesTest.can_search_entries_by_multiple_categories" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Entries\FilterEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/FilterEntriesTest.php" method="can_search_entries_by_multiple_categories" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="FilterEntriesTest.can_search_entries_by_name_and_comment" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -206,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.FilterEntriesTest.can_search_entries_by_multiple_categories" />
         <item itemvalue="PHPUnit.FilterEntriesTest.can_search_entries_by_categories" />
         <item itemvalue="PHPUnit.FilterEntriesTest.can_search_entries_by_name_and_comment_with_multiple_terms" />
         <item itemvalue="PHPUnit.FilterEntriesTest.can_search_entries_by_name_and_comment" />
         <item itemvalue="PHPUnit.FilterEntriesTest.cannot_filter_entries_by_unknown_filter" />
-        <item itemvalue="PHPUnit.FilterEntriesTest.can_filter_entries_by_month" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +225,7 @@
       <workItem from="1613503557419" duration="16157000" />
       <workItem from="1613584272394" duration="28930000" />
       <workItem from="1613769791040" duration="599000" />
-      <workItem from="1613772861135" duration="14317000" />
+      <workItem from="1613772861135" duration="20238000" />
     </task>
     <servers />
   </component>

@@ -162,10 +162,24 @@ class FilterEntriesTest extends TestCase
         Entry::factory()->times(3)->create();
         $category = Category::factory()->hasEntries(2)->create();
 
-        $url = route('api.v1.entries.index',['filter[categories]'=> $category->getRouteKey()]);
-
-        $this->jsonApi()->get($url)
+        $this->jsonApi()->filter([
+            'categories'=> $category->getRouteKey()
+        ])->get(route('api.v1.entries.index'))
             ->assertJsonCount(2,'data')
          ;
+    }
+
+    /** @test */
+    public function can_search_entries_by_multiple_categories()
+    {
+        Entry::factory()->times(3)->create();
+        $category = Category::factory()->hasEntries(2)->create();
+        $category2 = Category::factory()->hasEntries(3)->create();
+
+        $this->jsonApi()->filter([
+            'categories'=> $category->getRouteKey().','.$category2->getRouteKey()
+        ])->get(route('api.v1.entries.index'))
+            ->assertJsonCount(5,'data')
+        ;
     }
 }
