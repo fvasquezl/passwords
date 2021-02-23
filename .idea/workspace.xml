@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Authors/Adapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Authors/Adapter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Authors/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Authors/Schema.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Authors/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Authors/Validators.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Entries/Schema.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Adapter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Categories/Adapter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Categories/Schema.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/JsonApi/Categories/Validators.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/JsonApi/Categories/Validators.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Categories/ListCategoriesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Categories/ReadCategoriesTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,24 +181,24 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="PHPUnit.IncludeEntriesTest.can_fetch_related_entries">
-    <configuration name="IncludeAuthorsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\IncludeAuthorsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/IncludeAuthorsTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IncludeCategoriesTest.can_include_categories" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\IncludeCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/IncludeCategoriesTest.php" method="can_include_categories" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IncludeCategoriesTest.can_include_related_categories" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Entries\IncludeCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Entries/IncludeCategoriesTest.php" method="can_include_related_categories" scope="Method" />
-      <method v="2" />
-    </configuration>
     <configuration name="IncludeEntriesTest.can_fetch_related_entries" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Authors\IncludeEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Authors/IncludeEntriesTest.php" method="can_fetch_related_entries" scope="Method" />
+      <TestRunner class="Tests\Feature\Categories\IncludeEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/IncludeEntriesTest.php" method="can_fetch_related_entries" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="IncludeEntriesTest.can_include_authors" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Authors\IncludeEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Authors/IncludeEntriesTest.php" method="can_include_authors" scope="Method" />
+    <configuration name="IncludeEntriesTest.can_include_articles" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Categories\IncludeEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/IncludeEntriesTest.php" method="can_include_articles" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateCategoriesTest.auth_user_can_update_their_categories" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Categories\UpdateCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/UpdateCategoriesTest.php" method="auth_user_can_update_their_categories" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateCategoriesTest.can_update_only_the_name" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Categories\UpdateCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/UpdateCategoriesTest.php" method="can_update_only_the_name" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdateCategoriesTest.can_update_only_the_slug" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Categories\UpdateCategoriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Categories/UpdateCategoriesTest.php" method="can_update_only_the_slug" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -208,10 +208,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.IncludeEntriesTest.can_fetch_related_entries" />
-        <item itemvalue="PHPUnit.IncludeCategoriesTest.can_include_categories" />
-        <item itemvalue="PHPUnit.IncludeEntriesTest.can_include_authors" />
-        <item itemvalue="PHPUnit.IncludeAuthorsTest" />
-        <item itemvalue="PHPUnit.IncludeCategoriesTest.can_include_related_categories" />
+        <item itemvalue="PHPUnit.IncludeEntriesTest.can_include_articles" />
+        <item itemvalue="PHPUnit.UpdateCategoriesTest.can_update_only_the_slug" />
+        <item itemvalue="PHPUnit.UpdateCategoriesTest.can_update_only_the_name" />
+        <item itemvalue="PHPUnit.UpdateCategoriesTest.auth_user_can_update_their_categories" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +229,7 @@
       <workItem from="1613503557419" duration="16157000" />
       <workItem from="1613584272394" duration="28930000" />
       <workItem from="1613769791040" duration="599000" />
-      <workItem from="1613772861135" duration="26679000" />
+      <workItem from="1613772861135" duration="34300000" />
     </task>
     <servers />
   </component>
