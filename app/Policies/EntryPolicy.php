@@ -15,7 +15,6 @@ class EntryPolicy
             $user->id === $request->json('data.relationships.authors.data.id');
     }
 
-
     public function update(User $user, $entry)
     {
         return $user->tokenCan('entries:update') &&
