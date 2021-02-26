@@ -72,37 +72,37 @@ class LoginTest extends TestCase
 
     }
 
-//    /** @test */
-//    public function user_permissions_are_assigned_as_abilities_to_the_token_response()
-//    {
-//        $user = User::factory()->create();
-//
-//        $permissions = Permission::factory()->create([
-//            'name' => $entriesCreatePermissions = 'entries:create'
-//        ]);
-//        $permissions2 = Permission::factory()->create([
-//            'name' => $entriesUpdatePermissions = 'entries:update'
-//        ]);
-//
-//      $user->givePermissionTo($permissions);
-//      $user->givePermissionTo($permissions2);
-//
-//
-//      $response = $this->postJson(route('api.v1.login'),[
-//          'email' => $user->email,
-//          'password' => 'password',
-//          'device_name' => 'iPhone de ' . $user->name
-//      ]);
-//
-//        $dbToken = PersonalAccessToken::findToken(
-//            $response->json('plain-text-token')
-//        );
-//
-//        $this->assertTrue($dbToken->can($entriesCreatePermissions));
-//        $this->assertTrue($dbToken->can($entriesUpdatePermissions));
-//        $this->assertTrue($dbToken->can('entries:delete'));
-//
-//    }
+    /** @test */
+    public function user_permissions_are_assigned_as_abilities_to_the_token_response()
+    {
+        $user = User::factory()->create();
+
+        $permissions = Permission::factory()->create([
+            'name' => $entriesCreatePermissions = 'entries:create'
+        ]);
+        $permissions2 = Permission::factory()->create([
+            'name' => $entriesUpdatePermissions = 'entries:update'
+        ]);
+
+      $user->givePermissionTo($permissions);
+      $user->givePermissionTo($permissions2);
+
+
+      $response = $this->postJson(route('api.v1.login'),[
+          'email' => $user->email,
+          'password' => 'password',
+          'device_name' => 'iPhone de ' . $user->name
+      ]);
+
+        $dbToken = PersonalAccessToken::findToken(
+            $response->json('plain-text-token')
+        );
+
+        $this->assertTrue($dbToken->can($entriesCreatePermissions));
+        $this->assertTrue($dbToken->can($entriesUpdatePermissions));
+        $this->assertFalse($dbToken->can('entries:delete'));
+
+    }
 
 
 

@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84a6da09-4328-4f7c-abfc-d8119f2a8015" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Responses/TokenResponse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/passwords.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/passwords.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/EntryPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_214305_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_214305_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stubs/test.unit.stub" beforeDir="false" afterPath="$PROJECT_DIR$/stubs/test.unit.stub" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/Auth/LoginTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Auth/LoginTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +163,7 @@
       <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
       <path value="$PROJECT_DIR$/vendor/cloudcreativity/json-api-testing" />
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/vendor/brianium/paratest" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oOvZoO1QuRt8esM7LgSt3baS0m" />
@@ -179,28 +181,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHPUnit.RegisterTest.cannot_register_twice">
-    <configuration name="AuthenticatedUserTest.can_fetch_authenticated_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Auth\AuthenticatedUserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Auth/AuthenticatedUserTest.php" method="can_fetch_authenticated_user" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.GeneratePermissionsTest.can_generate_permissions_for_registered_api_resources">
+    <configuration name="GeneratePermissionsTest.can_generate_permissions_for_registered_api_resources" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\Commands\GeneratePermissionsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/Commands/GeneratePermissionsTest.php" method="can_generate_permissions_for_registered_api_resources" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="AuthenticatedUserTest.guest_cannot_fetch_any_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Auth\AuthenticatedUserTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Auth/AuthenticatedUserTest.php" method="guest_cannot_fetch_any_user" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="IncludeEntriesTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Authors\IncludeEntriesTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Authors/IncludeEntriesTest.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LoginTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\Auth\LoginTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Auth/LoginTest.php" scope="Class" />
+    <configuration name="LoginTest.user_permissions_are_assigned_as_abilities_to_the_token_response" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\Auth\LoginTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Auth/LoginTest.php" method="user_permissions_are_assigned_as_abilities_to_the_token_response" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="RegisterTest.cannot_register_twice" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\Auth\RegisterTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/Auth/RegisterTest.php" method="cannot_register_twice" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UserPermissionTest.can_assign_permissions_to_a_user" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\UserPermissionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/UserPermissionTest.php" method="can_assign_permissions_to_a_user" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UserPermissionTest.can_assign_the_same_permissions_twice" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\UserPermissionTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/UserPermissionTest.php" method="can_assign_the_same_permissions_twice" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -209,11 +211,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.GeneratePermissionsTest.can_generate_permissions_for_registered_api_resources" />
+        <item itemvalue="PHPUnit.LoginTest.user_permissions_are_assigned_as_abilities_to_the_token_response" />
+        <item itemvalue="PHPUnit.UserPermissionTest.can_assign_the_same_permissions_twice" />
+        <item itemvalue="PHPUnit.UserPermissionTest.can_assign_permissions_to_a_user" />
         <item itemvalue="PHPUnit.RegisterTest.cannot_register_twice" />
-        <item itemvalue="PHPUnit.AuthenticatedUserTest.guest_cannot_fetch_any_user" />
-        <item itemvalue="PHPUnit.AuthenticatedUserTest.can_fetch_authenticated_user" />
-        <item itemvalue="PHPUnit.IncludeEntriesTest" />
-        <item itemvalue="PHPUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +234,8 @@
       <workItem from="1613584272394" duration="28930000" />
       <workItem from="1613769791040" duration="599000" />
       <workItem from="1613772861135" duration="36827000" />
-      <workItem from="1614110116602" duration="20557000" />
+      <workItem from="1614110116602" duration="26846000" />
+      <workItem from="1614292413916" duration="4172000" />
     </task>
     <servers />
   </component>

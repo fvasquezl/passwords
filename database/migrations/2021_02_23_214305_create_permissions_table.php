@@ -20,7 +20,6 @@ class CreatePermissionsTable extends Migration
         });
 
         Schema::create('permission_user', function (Blueprint $table) {
-            $table->id();
             $table->foreignUuid('user_id')
                 ->constrained()
                 ->cascadeOnDelete();
