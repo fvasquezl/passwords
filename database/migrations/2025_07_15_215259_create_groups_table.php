@@ -10,16 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('credentials', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('categories')->nullOnDelete();
-            $table->string('title');
-            $table->string('username');
-            $table->text('password');
+            $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->timestamps();
-            $table->index('user_id');
         });
     }
 
@@ -28,6 +23,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('credentials');
+        Schema::dropIfExists('groups');
     }
 };

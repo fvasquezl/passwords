@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\CredentialResource\Pages;
-use App\Filament\Resources\CredentialResource\RelationManagers;
+use App\Filament\Resources\SharedCredentialResource\Pages;
+use App\Filament\Resources\SharedCredentialResource\RelationManagers;
 use App\Models\Credential;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -16,11 +16,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Facades\Filament;
 
-class CredentialResource extends Resource
+class SharedCredentialResource extends Resource
 {
     protected static ?string $model = Credential::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-key';
+    protected static ?string $navigationIcon = 'heroicon-o-share';
+
+    protected static ?string $navigationLabel = 'Shared with Me';
 
     protected static ?string $navigationGroup = 'Credentials';
 
@@ -30,28 +32,40 @@ class CredentialResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(fn($record) => !static::canEdit($record)),
                 Forms\Components\TextInput::make('username')
+                    ->label('Author')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(fn($record) => !static::canEdit($record)),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required(fn($context) => $context === 'create')
                     ->revealable()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->disabled(fn($record) => !static::canEdit($record)),
                 Forms\Components\Textarea::make('description')
                     ->rows(3)
-                    ->maxLength(1000),
+                    ->maxLength(1000)
+                    ->disabled(fn($record) => !static::canEdit($record)),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'name')
-                    ->required(),
+                    ->required()
+                    ->disabled(fn($record) => !static::canEdit($record)),
             ]);
+    }
+
+    public static function canEdit(\Illuminate\Database\Eloquent\Model $record): bool
+    {
+        $currentUserId = Filament::auth()->user()->id;
+        $share = $record->shares()->where('shared_with_user_id', $currentUserId)->first();
+        return $share && $share->permission === 'write';
     }
 
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist
-
             ->schema([
                 Infolists\Components\ViewEntry::make('credentials')
                     ->view('filament.infolists.credentials-with-copy')
@@ -75,6 +89,10 @@ class CredentialResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('username')
+                    ->label('Author')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('description')
                     ->limit(50)
                     ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
@@ -87,97 +105,55 @@ class CredentialResource extends Resource
                 Tables\Columns\BadgeColumn::make('category.name')
                     ->label('Category')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('shared_info')
-                    ->label('Shared')
+                Tables\Columns\TextColumn::make('shared_by')
+                    ->label('Shared by')
                     ->state(function (Credential $record) {
                         $currentUserId = Filament::auth()->user()->id;
-                        if ($record->user_id == $currentUserId) {
-                            return 'Owner';
-                        }
-
                         $share = $record->shares()->where('shared_with_user_id', $currentUserId)->first();
-                        if ($share) {
-                            return 'Shared by ' . $share->sharedBy->name;
-                        }
-
-                        return 'Owner';
+                        return $share ? $share->sharedBy->name : 'Unknown';
+                    })
+                    ->badge()
+                    ->color('warning'),
+                Tables\Columns\TextColumn::make('permission')
+                    ->label('Permission')
+                    ->state(function (Credential $record) {
+                        $currentUserId = Filament::auth()->user()->id;
+                        $share = $record->shares()->where('shared_with_user_id', $currentUserId)->first();
+                        return $share ? ucfirst($share->permission) : 'None';
                     })
                     ->badge()
                     ->color(function (Credential $record) {
                         $currentUserId = Filament::auth()->user()->id;
-                        return $record->user_id == $currentUserId ? 'success' : 'warning';
+                        $share = $record->shares()->where('shared_with_user_id', $currentUserId)->first();
+                        return $share && $share->permission === 'write' ? 'success' : 'info';
                     }),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\ViewAction::make()
-                    ->modalHeading('View Credentials'),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\Action::make('share')
-                    ->label('Share')
-                    ->icon('heroicon-o-share')
-                    ->visible(fn(Credential $record) => $record->canBeShared())
-                    ->form([
-                        Forms\Components\Select::make('shared_with_user_id')
-                            ->label('Share with User')
-                            ->options(function () {
-                                return \App\Models\User::where('id', '!=', Filament::auth()->user()->id)
-                                    ->pluck('name', 'id');
-                            })
-                            ->required()
-                            ->searchable(),
-                        Forms\Components\Select::make('permission')
-                            ->label('Permission')
-                            ->options([
-                                'read' => 'Read Only',
-                                'write' => 'Read & Write',
-                            ])
-                            ->default('read')
-                            ->required(),
-                    ])
-                    ->action(function (array $data, Credential $record) {
-                        \App\Models\CredentialShare::updateOrCreate(
-                            [
-                                'credential_id' => $record->id,
-                                'shared_with_user_id' => $data['shared_with_user_id'],
-                            ],
-                            [
-                                'shared_by_user_id' => Filament::auth()->user()->id,
-                                'permission' => $data['permission'],
-                            ]
-                        );
-                    })
-                    ->modalHeading('Share Credential'),
-                Tables\Actions\DeleteAction::make(),
+                    ->modalHeading('View Shared Credential'),
+                Tables\Actions\EditAction::make()
+                    ->visible(fn(Credential $record) => static::canEdit($record)),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                //
             ]);
     }
 
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
-            ->where('user_id', Filament::auth()->user()->id);
+            ->whereHas('shares', function (Builder $query) {
+                $query->where('shared_with_user_id', Filament::auth()->user()->id);
+            });
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ManageCredentials::route('/'),
+            'index' => Pages\ManageSharedCredentials::route('/'),
         ];
     }
 }
-
