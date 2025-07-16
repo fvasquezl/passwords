@@ -30,21 +30,25 @@ class CredentialResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('username')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required(fn($context) => $context === 'create')
-                    ->revealable()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->rows(3)
-                    ->maxLength(1000),
-                Forms\Components\Select::make('category_id')
-                    ->relationship('category', 'name')
-                    ->required(),
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+                Forms\Components\Fieldset::make('Access Info')
+                    ->schema([
+                        Forms\Components\TextInput::make('username')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('password')
+                            ->password()
+                            ->required(fn($context) => $context === 'create')
+                            ->revealable()
+                            ->maxLength(255),
+                    ])
+                    ->columns(2),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Description')
+                    ->maxLength(1000)
+                    ->columnSpanFull(),
+                Forms\Components\Select::make('category_id')->relationship('category', 'name')->required(),
             ]);
     }
 
@@ -76,6 +80,7 @@ class CredentialResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->state(fn($record) => strip_tags($record->description))
                     ->limit(50)
                     ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
                         $state = $column->getState();

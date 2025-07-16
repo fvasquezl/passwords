@@ -11,7 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('group_id')->constrained()->after('id')->nullable()->nullOnDelete();
+            $table->unsignedBigInteger('group_id')->nullable()->after('id');
+        });
+        // Agrega la restricción de llave foránea en un segundo paso
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('group_id')->references('id')->on('groups')->nullOnDelete();
         });
     }
 

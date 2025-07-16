@@ -94,6 +94,7 @@ class SharedCredentialResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('description')
+                    ->state(fn($record) => strip_tags($record->description))
                     ->limit(50)
                     ->tooltip(function (Tables\Columns\TextColumn $column): ?string {
                         $state = $column->getState();
